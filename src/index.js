@@ -14,36 +14,27 @@ class ExportSVG {
     Object.assign(this, DEFAULTS, options);
   }
 
-  getSerializedSvg() {
-    // const svgCtx = new C2S(this.canvas.width, this.canvas.height);
-    const svgCtx = new C2S(400, 300);
+  getSVG() {
+    // save a copy of the tree original drawing context
+    const originalCxt = this.tree.canvas;
 
-    svgCtx.___test = 1;
-
-    const canvasCxt = this.tree.canvas;
-
-    // svgCtx.canvas = this.canvas;
-
-    // const currentElement = svgCtx.__currentElement;
-
+    // replace the tree drawing context with the SVG drawing context
+    const svgCtx = new C2S(this.canvas.width, this.canvas.height);
     this.tree.canvas = svgCtx;
-    // svgCtx.__currentElement = currentElement;
 
+    // draw the tree on the SVG drawing context
     svgCtx.save();
     this.tree.draw(svgCtx);
     svgCtx.restore();
 
-    const serializedSVG = svgCtx.getSerializedSvg();
+    // get the SVG element
     const svg = svgCtx.getSvg();
-    console.log({ serializedSVG, svg });
 
-    this.tree.canvas = canvasCxt;
+    // restore the tree original drawing context
+    this.tree.canvas = originalCxt;
     this.tree.draw();
 
     return svg;
-  }
-
-  getSvg() {
   }
 
 }

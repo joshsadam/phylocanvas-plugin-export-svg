@@ -35,7 +35,7 @@ const svgDiv = document.getElementById('svg');
 const exportButton = document.createElement('button');
 exportButton.innerHTML = 'Export Serialised SVG';
 exportButton.addEventListener('click', () => {
-  const svg = tree.exportSVG.getSerializedSvg();
+  const svg = tree.exportSVG.getSVG();
   textarea.innerHTML = svg.outerHTML;
   svgDiv.appendChild(svg);
 });
