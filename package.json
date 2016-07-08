@@ -42,5 +42,8 @@
     "dist",
     "*.md",
     "unstyled.js"
-  ]
+  ],
+  "dependencies": {
+    "phylocanvas": "github:phylocanvas/phylocanvas#dev"
+  }
 }

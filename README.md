@@ -17,4 +17,11 @@ const tree = Phylocanvas.createTree('id', {
 })
 
 tree.exportSVG.getSVG();
+// or
+tree.exportSVG.getSerialisedSVG();
 ```
+
+## Methods
+
+* `getSVG()`: returns the shadow inline SVG element
+* `getSerialisedSVG(fixNamedEntities = false)`: returns string serialised SVG. Pass `fixNamedEntities` as `true` to convert named entities to numbered entities.
