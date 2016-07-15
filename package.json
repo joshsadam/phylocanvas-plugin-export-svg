@@ -1,6 +1,6 @@
 {
   "name": "phylocanvas-plugin-export-svg",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Export Phylocanvas trees as SVG",
   "main": "dist/index.js",
   "scripts": {
