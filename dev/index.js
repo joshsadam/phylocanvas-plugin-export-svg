@@ -1,6 +1,6 @@
 import 'phylocanvas/polyfill';
 
-import Phylocanvas from 'phylocanvas/src';
+import Phylocanvas from 'phylocanvas';
 import scalebarPlugin from '../src';
 
 Phylocanvas.plugin(scalebarPlugin);
