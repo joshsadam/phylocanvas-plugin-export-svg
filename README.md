@@ -23,5 +23,5 @@ tree.exportSVG.getSerialisedSVG();
 
 ## Methods
 
-* `getSVG()`: returns the shadow inline SVG element
-* `getSerialisedSVG(fixNamedEntities = false)`: returns string serialised SVG. Pass `fixNamedEntities` as `true` to convert named entities to numbered entities.
+* `getSVG()`: returns the detached SVG DOM element.
+* `getSerialisedSVG(fixNamedEntities = false)`: returns SVG serialised as a string. Pass `fixNamedEntities` as `true` to convert named entities to numbered entities.
