@@ -11,10 +11,7 @@ import exportSvgPlugin from 'phylocanvas-plugin-export-svg';
 
 Phylocanvas.plugin(exportSvgPlugin);
 
-const tree = Phylocanvas.createTree('id', {
-  // config defaults
-  exportSvg: {},
-})
+const tree = Phylocanvas.createTree('id');
 
 tree.exportSVG.getSVG();
 // or
