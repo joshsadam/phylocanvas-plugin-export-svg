@@ -2,18 +2,37 @@ import 'phylocanvas/polyfill';
 
 import Phylocanvas from 'phylocanvas';
 import scalebarPlugin from '../src';
+import metadataPlugin from 'phylocanvas-plugin-metadata';
 
 Phylocanvas.plugin(scalebarPlugin);
+Phylocanvas.plugin(metadataPlugin);
 
 const tree = Phylocanvas.createTree('phylocanvas', {
   scalebar: {
     fillStyle: 'green',
     strokeStyle: 'red',
   },
+  metadata: {
+    active: true,
+    showHeaders: true,
+    showLabels: true,
+    blockLength: 32,
+    blockSize: null,
+    padding: 8,
+    columns: [],
+    propertyName: 'data',
+    underlineHeaders: true,
+    headerAngle: 90,
+    fillStyle: 'black',
+    strokeStyle: 'black',
+    lineWidth: 1,
+    font: null,
+  },
   padding: 10,
 });
 
 tree.setTreeType('rectangular');
+tree.alignLabels = true;
 tree.containerElement.style.overflow = 'hidden';
 
 const subtreeButton = document.createElement('button');
@@ -53,7 +72,19 @@ document.body.appendChild(sourceDiv);
 
 tree.on('error', event => { throw event.error; });
 
-tree.on('loaded', () => console.log('loaded'));
+tree.on('beforeFirstDraw', function () {
+  for (var i = 0; i < tree.leaves.length; i++) {
+    tree.leaves[i].data = {
+      column1: {
+        colour: '#3C7383',
+        label: 'Label' + (i + 1),
+      },
+      column2: '#9BB7BF',
+      column3: '#3C7383',
+      column4: '#9BB7BF',
+    };
+  }
+});
 
 tree.load('((TestLabel:0.2,(C:0.3,(G:0.2,H:0.3)D:0.4)E:0.5)F:0.1)A;');
 

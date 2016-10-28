@@ -37,5 +37,9 @@
   "files": [
     "dist",
     "*.md"
-  ]
+  ],
+  "dependencies": {
+    "phylocanvas": "^2.7.2",
+    "phylocanvas-plugin-metadata": "^2.0.1"
+  }
 }
